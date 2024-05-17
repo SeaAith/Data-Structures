@@ -2,27 +2,52 @@
 
 using namespace std;
 
-//using callback reference as a parameter
-void swap (int & x, int  & y) {
-    int temp = x;
-
-    x = y;
-    y = temp;
-
+int add(int num1, int num2) {
+    return num1 + num2;
 }
+
+    int mul(int num1, int num2) {
+        return num1 * num2;
+    }
+
+//using references to functions
 int main () {
-    int x = 5, y = 10;
+    
+    int a, b;
 
-    cout << "X is: " << x << endl;
-    cout << "Y is: " << y << endl;
+    cout << "Type a number: "; 
+    cin >> a;
+    cout << "Type another number: ";
+    cin >> b;
 
-    swap(x, y);
-    cout << "Numbers were swapped." << endl;
+    int (*fn)(int, int) = (a > b) ? add : mul;
+    cout << fn(a, b);
 
-    cout << "X is: " << x << endl;
-    cout << "Y is: " << y << endl;
-
+    return 0;
 }
+
+
+//using callback reference as a parameter
+// void swap (int & x, int  & y) {
+//     int temp = x;
+
+//     x = y;
+//     y = temp;
+
+// }
+// int main () {
+//     int x = 5, y = 10;
+
+//     cout << "X is: " << x << endl;
+//     cout << "Y is: " << y << endl;
+
+//     swap(x, y);
+//     cout << "Numbers were swapped." << endl;
+
+//     cout << "X is: " << x << endl;
+//     cout << "Y is: " << y << endl;
+
+// }
 
 
 //using pointers to send adresses to function
