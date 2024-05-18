@@ -2,29 +2,63 @@
 
 using namespace std;
 
-int add(int num1, int num2) {
-    return num1 + num2;
+//passing arrays as parameters
+int* createArr (int arrSize) {
+    return new int[arrSize];
 }
 
-    int mul(int num1, int num2) {
-        return num1 * num2;
+void fillArr (int arr[], int arrSize) {
+    for (int i = 0; i < arrSize; i++){
+        cout << "type a number to insert it on the array: ";
+        cin >> arr[i];   
     }
+}
 
-//using references to functions
+void printArr (int arr[], int arrSize) {
+    for (int i = 0; i < arrSize; i++){
+        cout << arr[i] << " ";
+    }
+}
+
 int main () {
-    
-    int a, b;
+    int *A;
 
-    cout << "Type a number: "; 
-    cin >> a;
-    cout << "Type another number: ";
-    cin >> b;
+    A = createArr(5);
 
-    int (*fn)(int, int) = (a > b) ? add : mul;
-    cout << fn(a, b);
+    fillArr(A, 5);
+
+    cout << "The filled array is: ";
+    printArr(A, 5); 
+
+    delete [] A;
 
     return 0;
 }
+
+// //using references to functions
+// int add(int num1, int num2) {
+//     return num1 + num2;
+// }
+
+//     int mul(int num1, int num2) {
+//         return num1 * num2;
+//     }
+
+
+// int main () {
+    
+//     int a, b;
+
+//     cout << "Type a number: "; 
+//     cin >> a;
+//     cout << "Type another number: ";
+//     cin >> b;
+
+//     int (*fn)(int, int) = (a > b) ? add : mul;
+//     cout << fn(a, b);
+
+//     return 0;
+// }
 
 
 //using callback reference as a parameter
