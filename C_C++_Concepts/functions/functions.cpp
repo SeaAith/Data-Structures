@@ -2,38 +2,70 @@
 
 using namespace std;
 
-//passing arrays as parameters
-int* createArr (int arrSize) {
-    return new int[arrSize];
+//using structs as parameters
+struct Rectangle {
+    int height;
+    int length;
+};
+
+//passing struct as value
+int area(Rectangle r1) {
+    return r1.height * r1.length;
 }
 
-void fillArr (int arr[], int arrSize) {
-    for (int i = 0; i < arrSize; i++){
-        cout << "type a number to insert it on the array: ";
-        cin >> arr[i];   
-    }
-}
-
-void printArr (int arr[], int arrSize) {
-    for (int i = 0; i < arrSize; i++){
-        cout << arr[i] << " ";
-    }
+//passing struct as a pointer
+void changeLength(Rectangle *r1, int newLength) {
+    r1->length = newLength;    
 }
 
 int main () {
-    int *A;
+    struct Rectangle r = {10, 5};
 
-    A = createArr(5);
+    cout << "The area of the rectangle is: " << area(r) << endl;
 
-    fillArr(A, 5);
+    cout << "The length of the rectangle is: " << r.length << endl;
 
-    cout << "The filled array is: ";
-    printArr(A, 5); 
+    changeLength(&r, 6); 
 
-    delete [] A;
+    cout << "The new length of the rectangle is: " << r.length << endl;
 
     return 0;
 }
+
+
+//passing arrays as parameters
+// int* createArr (int arrSize) {
+//     return new int[arrSize];
+// }
+
+// void fillArr (int arr[], int arrSize) {
+//     for (int i = 0; i < arrSize; i++){
+//         cout << "type a number to insert it on the array: ";
+//         cin >> arr[i];   
+//     }
+// }
+
+// void printArr (int arr[], int arrSize) {
+//     for (int i = 0; i < arrSize; i++){
+//         cout << arr[i] << " ";
+//     }
+// }
+
+// int main () {
+//     int *A;
+//     int arrSize = 5;
+
+//     A = createArr(arrSize);
+
+//     fillArr(A, arrSize);
+
+//     cout << "The filled array is: ";
+//     printArr(A, arrSize); 
+
+//     delete [] A;
+
+//     return 0;
+// }
 
 // //using references to functions
 // int add(int num1, int num2) {
@@ -128,3 +160,6 @@ int main () {
 
 //     return 0;
 // }
+
+
+  
