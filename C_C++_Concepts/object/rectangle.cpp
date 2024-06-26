@@ -3,19 +3,38 @@
 using namespace std;
 
 class Rectangle {
-    public: int Height; 
-    public: int Width;
+private:
+    int Height; 
+    int Width;
 
-    public: Rectangle(int height, int width) {
+public:
+    Rectangle() {
+        Height = 0;
+        Width = 0;
+    }
+    Rectangle(int height, int width) {
         Height = height;
         Width = width;
     }
 
-    public: int Area() {
+    int Area() {
         return Height * Width;
     }
+    int Perimeter() {
+        return 2 * (Height + Width);
+    }
 
-    public: void ChangeWidth(int newWidth) {
+    int GetHeight() {
+        return Height;
+    }
+    int GetWidth() {
+        return Width;
+    }
+
+    void SetHeight(int newHeight) {
+        Height = newHeight;
+    }
+    void SetWidth(int newWidth) {
         Width = newWidth;
     }
 };
@@ -23,12 +42,9 @@ class Rectangle {
 int main () {
     Rectangle r = Rectangle(10, 5);
 
-    cout << "Height: " << r.Height << endl << "Width: " << r.Width << endl;
+    cout << "Rectangle measurements are: " << endl << "Height:" << r.GetHeight() << endl << "Width: " << r.GetWidth() << endl;
     cout << "Rectangle area is: " << r.Area() << endl;
-
-    r.ChangeWidth(15);
-
-    cout << "Height: " << r.Height << endl << "Width: " << r.Width << endl;
+    cout << "Rectangle perimeter is: " << r.Perimeter() << endl;
 
     return 0;
 }
