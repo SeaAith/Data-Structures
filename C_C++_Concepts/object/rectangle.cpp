@@ -37,6 +37,8 @@ public:
     void SetWidth(int newWidth) {
         Width = newWidth;
     }
+
+    ~Rectangle() {}
 };
 
 int main () {
